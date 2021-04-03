@@ -1,0 +1,9 @@
+Starting audit...
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:5: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:6: Comment has incorrect indentation level 1, expected is 8, indentation should be the same level as line 7. [CommentsIndentation]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:7: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:8: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:1: Using the '.*' form of import should be avoided - java.io.*. [AvoidStarImport]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:48: Comment has incorrect indentation level 0, expected is 2, indentation should be the same level as line 50. [CommentsIndentation]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:70: Comment has incorrect indentation level 0, expected is 5, indentation should be the same level as line 72. [CommentsIndentation]
+Audit done.
