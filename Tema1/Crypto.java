@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 class Computer implements Comparable {
 	public int money = 0;
@@ -22,30 +21,28 @@ class Computer implements Comparable {
 public class Crypto {
 	public static void main(String[] args) throws IOException {
 
-		String line = null;
-		BufferedReader fileReader = new BufferedReader(new FileReader("crypto.in"));
+		BufferedReader reader  = new BufferedReader(new FileReader("crypto.in"));
 
-		line = fileReader.readLine();
-		Scanner scanner = new Scanner(line);
+		String line = reader.readLine();
+		String[] strLine = line.trim().split("\\s+");
+        int n = Integer.parseInt(strLine[0]);
+        int b = Integer.parseInt(strLine[1]);
 
-		int n = scanner.nextInt();
-		int b = scanner.nextInt();
 
 		List<Computer> computers = new ArrayList<>();
 
 		int sumForOne = 0;
 		for (int i = 0; i < n; i++) {
-			line = fileReader.readLine();
-			scanner = new Scanner(line);
+			line = reader.readLine();
+            strLine = line.trim().split("\\s+");
 
-			int p = scanner.nextInt();
-			int u = scanner.nextInt();
+			int p = Integer.parseInt(strLine[0]);
+			int u = Integer.parseInt(strLine[1]);
 			computers.add(new Computer(p, u));
 			sumForOne = sumForOne + u;
 		}
 
 		Collections.sort(computers); // O(n log n)
-//		System.out.println(computers);
 
 		int min = computers.get(0).money;
 		int currPrice = computers.get(0).price;
@@ -67,7 +64,6 @@ public class Crypto {
 					diff = b / currPrice;
 					b = 0;
 					min = min + diff;
-//					System.out.println(i + "----" + currPrice + " - " + b + " - " + min + "\n");
 
 					break;
 				}
