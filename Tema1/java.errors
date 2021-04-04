@@ -1,0 +1,17 @@
+Starting audit...
+[WARN] /home/radu/Facultate/PA/Tema1/./Stocks.java:1: Using the '.*' form of import should be avoided - java.io.*. [AvoidStarImport]
+[WARN] /home/radu/Facultate/PA/Tema1/./Stocks.java:27: Comment has incorrect indentation level 3, expected is 2, indentation should be the same level as line 30. [CommentsIndentation]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:5: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:6: Comment has incorrect indentation level 1, expected is 8, indentation should be the same level as line 7. [CommentsIndentation]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:7: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./src/com/company/Main.java:8: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./Valley.java:1: Using the '.*' form of import should be avoided - java.io.*. [AvoidStarImport]
+[WARN] /home/radu/Facultate/PA/Tema1/./Valley.java:20:21: Array brackets at illegal position. [ArrayTypeStyle]
+[WARN] /home/radu/Facultate/PA/Tema1/./Valley.java:21:22: Array brackets at illegal position. [ArrayTypeStyle]
+[WARN] /home/radu/Facultate/PA/Tema1/./Valley.java:22:26: Array brackets at illegal position. [ArrayTypeStyle]
+[WARN] /home/radu/Facultate/PA/Tema1/./Valley.java:23:27: Array brackets at illegal position. [ArrayTypeStyle]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:1: Using the '.*' form of import should be avoided - java.io.*. [AvoidStarImport]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:28: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:29: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+[WARN] /home/radu/Facultate/PA/Tema1/./Crypto.java:37: Indent must use tab characters (sizeof(tab) == 4). [RegexpSinglelineJava]
+Audit done.

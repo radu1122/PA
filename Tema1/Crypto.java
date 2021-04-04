@@ -32,7 +32,7 @@ public class Crypto {
 		List<Computer> computers = new ArrayList<>();
 
 		int sumForOne = 0;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { // O(n)
 			line = reader.readLine();
             strLine = line.trim().split("\\s+");
 
