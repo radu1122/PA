@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,8 +28,8 @@ public class Crypto {
 
 		String line = reader.readLine();
 		String[] strLine = line.trim().split("\\s+");
-        int n = Integer.parseInt(strLine[0]);
-        int b = Integer.parseInt(strLine[1]);
+		int n = Integer.parseInt(strLine[0]);
+		int b = Integer.parseInt(strLine[1]);
 
 
 		List<Computer> computers = new ArrayList<>();
@@ -34,7 +37,7 @@ public class Crypto {
 		int sumForOne = 0;
 		for (int i = 0; i < n; i++) { // O(n)
 			line = reader.readLine();
-            strLine = line.trim().split("\\s+");
+			strLine = line.trim().split("\\s+");
 
 			int p = Integer.parseInt(strLine[0]);
 			int u = Integer.parseInt(strLine[1]);
@@ -54,7 +57,7 @@ public class Crypto {
 				currPrice = currPrice + computers.get(i).price;
 			} else {
 				buff = ((long)computers.get(i).money - (long)min);
-				if ((long)b - (long)(currPrice * buff)  >= 0) {
+				if ((long)b - (long)(currPrice * buff) >= 0) {
 					buff = currPrice * buff;
 					b = b - (int)buff;
 					currPrice = currPrice + computers.get(i).price;
@@ -64,7 +67,6 @@ public class Crypto {
 					diff = b / currPrice;
 					b = 0;
 					min = min + diff;
-
 					break;
 				}
 			}

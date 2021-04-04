@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Valley {
 	public static void main(String[] args) throws IOException {
@@ -17,10 +20,10 @@ public class Valley {
 			mountains[i] = Integer.parseInt(strLine[i]);
 		}
 
-		long sumLeft[] = new long[n];
-		long sumRight[] = new long[n];
-		long currCostLeft[] = new long [n];
-		long currCostRight[] = new long [n];
+		long[] sumLeft = new long[n];
+		long[] sumRight = new long[n];
+		long[] currCostLeft = new long[n];
+		long[] currCostRight = new long[n];
 
 
 		sumLeft[0] = 0;

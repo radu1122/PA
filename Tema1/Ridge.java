@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Ridge {
 	public static void main(String[] args) throws IOException {
@@ -36,7 +39,7 @@ public class Ridge {
 			dp[0][2] = Long.MAX_VALUE;
 		}
 		
-		for(int i = 1; i < n; i++) { // O(n)
+		for (int i = 1; i < n; i++) { // O(n)
 			dp[i][0] = 0;
 			dp[i][1] = costs[i];
 			dp[i][2] = 2 * costs[i];
