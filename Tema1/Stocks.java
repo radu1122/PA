@@ -9,12 +9,12 @@ public class Stocks {
 		int b = Integer.parseInt(strLine[1]);
 		int l = Integer.parseInt(strLine[2]);
 
-		int[] currentValues = new int[n];
-		int[] minValues = new int[n];
-		int[] maxValues = new int[n];
+		int[] currentValues = new int[n + 1];
+		int[] minValues = new int[n + 1];
+		int[] maxValues = new int[n + 1];
 
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 1; i <= n; i++) {
 			line = reader.readLine();
 			strLine = line.trim().split("\\s+");
 
@@ -27,33 +27,54 @@ public class Stocks {
 			// dp este o matrice de dimensiune (n + 1)x(b+1)
 		// pentru ca folosim dp[0][*] pentru multimea vida
 		//                   dp[*][0] pentru situatia in care ghiozdanul are capacitate 0
-		int[][] dp = new int [n + 1][b + 1];
+		int[][][] dp = new int [2][b + 1][l + 1];
 
 		// cazul de baza
-		for (int cap = 0; cap <= b; ++cap) {
-			dp[0][cap] = 0;
-		}
+		// for (int cap = 0; cap <= b; ++cap) {
+		//     dp[0][cap] = 0;
+		// }
 
 		// cazul general
 		for (int i = 1; i <= n; ++i) {
 			for (int cap = 0; cap <= b; ++cap) {
 				// nu folosesc obiectu i => e solutia de la pasul i - 1
-				dp[1][cap] = dp[1][cap];
+				for (int loss = 0; loss <= l; loss++) {
+					dp[1][cap][loss] = dp[0][cap][loss];
+					int tempLoss = minValues[i] - currentValues[i];
+					System.out.println(Math.min(loss,tempLoss));
+					// folosesc obiectul i, deci trebuie sa rezerv w[i] unitati in rucsac
+					// inseamna ca inainte trebuie sa ocup maxim cap - w[i] unitati
+					if (cap - currentValues[i] >= 0) {
+						int sol_aux = dp[1][cap - currentValues[i]][Math.min(loss, loss)] + maxValues[i];
+						
+						if (tempLoss < 0) {
+							// if (loss - (minValues[i] - currentValues[i]) <= loss) {
+								dp[1][cap][loss] = Math.max(dp[1][cap][loss], sol_aux);
 
-				// folosesc obiectul i, deci trebuie sa rezerv w[i] unitati in rucsac
-				// inseamna ca inainte trebuie sa ocup maxim cap - w[i] unitati
-				if (cap - currentValues[i] >= 0) {
-					int sol_aux = dp[1][cap - currentValues[i]] + maxValues[i];
+							// }
+						} else {
+							dp[1][cap][loss] = Math.max(dp[1][cap][loss], sol_aux);
+						}
+					}
+				}
 
-					dp[1][cap] = Math.max(dp[1][cap], sol_aux);
+			}
+		}
+
+		for (int i = 0; i < 2; i++) {
+			for (int j = 1; j < b + 1; j++) {
+				for (int k = 1; k < l + 1; k++) {
+					System.out.println("INDICI:" + i + " " + j + " " + k + " VAL: " + dp[i][j][k]);
 				}
 			}
+			System.out.println();
+
 		}
 
 		// System.out.println(dp[1][b]); 
 
 		FileWriter myWriter = new FileWriter("stocks.out");
-		myWriter.write(Integer.toString(dp[1][b]));
+		myWriter.write(Integer.toString(dp[1][b][l]));
 		myWriter.close();
 
 	}
