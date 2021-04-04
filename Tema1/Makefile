@@ -19,4 +19,5 @@ run-p3: Valley.class
 run-p4: Ridge.class
 	java Ridge
 
-clean:		 # nume necesar
+clean:
+	rm *.class

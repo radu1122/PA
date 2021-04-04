@@ -29,22 +29,25 @@ public class Stocks {
 
 		int[][][] dp = new int [n + 1][b + 1][l + 1];
 
-		for (int i = 1; i <= n; ++i) {
-			for (int cap = 0; cap <= b; ++cap) {
+		for (int i = 0; i <= n; i++) {
+			for (int cap = 0; cap <= b; cap++) {
+				for (int loss = 0; loss <= l; loss++) {
+					dp[i][cap][loss] = Integer.MIN_VALUE;
+				}
+			}
+		}
+		dp[0][0][0] = 0;
+
+		for (int i = 1; i <= n; i++) {
+			for (int cap = 0; cap <= b; cap++) {
 				for (int loss = 0; loss <= l; loss++) {
 					dp[i][cap][loss] = dp[i - 1][cap][loss];
 					int tempLoss = minValues[i] - currentValues[i];
-					if (cap - currentValues[i] >= 0) {
-						int sol_aux = dp[i][cap - currentValues[i]][loss]
-									+ maxValues[i];
+					if (cap - currentValues[i] >= 0 && loss + tempLoss >= 0) {
+						int sol_aux = dp[i - 1][cap - currentValues[i]][loss + tempLoss]
+									+ maxValues[i] - currentValues[i];
 						
-						if (tempLoss < 0) {
-							if (loss - (minValues[i] - currentValues[i]) <= loss) {
-								dp[i][cap][loss] = Math.max(dp[i][cap][loss], sol_aux);
-							}
-						} else {
-							dp[i][cap][loss] = Math.max(dp[i][cap][loss], sol_aux);
-						}
+						dp[i][cap][loss] = Math.max(dp[i][cap][loss], sol_aux);
 					}
 				}
 
@@ -61,8 +64,18 @@ public class Stocks {
 
 		}
 
+		int max = Integer.MIN_VALUE;
+
+		for (int cap = 0; cap <= b; cap++) {
+			for (int loss = 0; loss <= l; loss++) {
+				if (dp[n][cap][loss] > max) {
+					max = dp[n][cap][loss];
+				}
+			}
+		}
+
 		FileWriter myWriter = new FileWriter("stocks.out");
-		myWriter.write(Integer.toString(dp[1][b][l]));
+		myWriter.write(Integer.toString(max));
 		myWriter.close();
 
 	}
