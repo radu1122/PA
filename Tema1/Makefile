@@ -5,6 +5,7 @@ build:
 	javac Valley.java
 	javac Stocks.java
 	javac Ridge.java
+	javac Trigigel.java
 
 run-p1: Crypto.class
 	java Crypto
@@ -18,6 +19,9 @@ run-p3: Valley.class
 
 run-p4: Ridge.class
 	java Ridge
+
+run-p5: Trigigel.class
+	java Trigigel
 
 clean:
 	rm *.class
