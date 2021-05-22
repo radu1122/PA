@@ -17,32 +17,37 @@ public class Trigigel {
 		long count2 = 0;
 
 		for (long i = 1; i <= n; i++) {
-			if (count % 1000000007 == 0) {
-				count = 0;
-			}
+			count = count % 1000000007;
 			
 			if (i % 3 == 1) {
 				count0++;
 				count0 += count2;
+				count0 = count0 % 1000000007;
 				count++;
 				count = count + count2;
+				count = count % 1000000007;
 			} else if (i % 3 == 2) {
 				count1++;
 				count1 += count0;
+				count1 = count1 % 1000000007;
 				count++;
 				count = count + count0;
+				count = count % 1000000007;
 			} else {
 				count2++;
 				count2 += count1;
+				count2 = count2 % 1000000007;
 				count++;
 				count = count + count1;
+				count = count % 1000000007;
 			}
+			count = count % 1000000007;
 
-			if (count % 1000000007 == 0) {
-				count = 0;
-			}
+
 			
 		}
+
+
 
 		FileWriter myWriter = new FileWriter("trigigel.out");
 		myWriter.write(Long.toString(count % 1000000007));
