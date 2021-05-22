@@ -26,7 +26,11 @@ public class Trigigel {
 				count++;
 				count = count + count2;
 				count = count % 1000000007;
+<<<<<<< HEAD
 			} else if (i % 3 == 2) {
+=======
+ 			} else if (i % 3 == 2) {
+>>>>>>> 94a926fc5f1da0b81c935f03091b89257dcbd92f
 				count1++;
 				count1 += count0;
 				count1 = count1 % 1000000007;
@@ -42,9 +46,12 @@ public class Trigigel {
 				count = count % 1000000007;
 			}
 			count = count % 1000000007;
+<<<<<<< HEAD
 
 
 			
+=======
+>>>>>>> 94a926fc5f1da0b81c935f03091b89257dcbd92f
 		}
 
 
